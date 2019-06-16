@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!--配置HandlerMapping,将url请求映射到Handler-->
+    <bean id="halderMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+        <property name="mappings">
+            <props>
+                <!--配置test请求对应的handler-->
+                <prop key="/test">testHandler</prop>
+            </props>
+        </property>
+    </bean>
+    <bean id="testHandler" class="cn.imnu.handler.MyHandler"></bean>
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+                <property name="prefix" value="/"></property>
+                <property name="suffix" value=".jsp"></property>
+    </bean>
+
+</beans>
